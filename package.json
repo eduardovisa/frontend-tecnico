@@ -1,0 +1,21 @@
+{
+  "name": "frontend-tecnico",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.4",
+    "svelte": "^3.58.0",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "@emotion/style": "^0.8.0",
+    "@mui/icons-material": "^5.11.16",
+    "@supabase/supabase-js": "^2.24.0"
+  }
+}
