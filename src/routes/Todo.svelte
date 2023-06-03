@@ -7,6 +7,7 @@
     import Input from "../lib/Input.svelte";
 
     let itemList = [];
+    let itemListCompleted = 0;
 
     onMount(async () => {
         getAllItems();
@@ -16,6 +17,7 @@
         try {
             let { data, error } = await supabase.from('todos').select('*').order('id', { ascending: false });
             itemList = data;
+            itemListCompleted = itemList.filter(item => item.status == true).length;
             // console.log(data);
         } catch (error) {
             console.log(error);
@@ -69,6 +71,12 @@
     {:else}
         <h1>Empty</h1>
     {/each }
+
+    <div style="text-align: left;">
+        <p>Todal Todos: {itemList.length} | Completed Todos: {itemListCompleted}</p>
+        <p style="font-weight: bold;"><i>"The future belongs to those who believe in the beauty of their 
+            <br /> dreams."</i> - Eleanor Roosevelt</p>
+    </div>
 </div>
 
 <style>

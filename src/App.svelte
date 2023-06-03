@@ -1,11 +1,11 @@
 <script>
-  import TodoList from "./routes/TodoList.svelte";
+  import Todo from "./routes/Todo.svelte";
 </script>
 
 <main class="body">
 
   <div>
-    <TodoList />
+    <Todo />
   </div>
 
 </main>
