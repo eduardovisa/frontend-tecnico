@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Página web de un componente de Todo-List funcional
+Página web de un componente de lista de tareas funcional
 
 - Mostrar las tareas actuales
 - Agregar una nueva tarea
