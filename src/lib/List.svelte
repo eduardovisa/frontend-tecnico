@@ -1,7 +1,6 @@
 <script>
     import FaCheck from 'svelte-icons/fa/FaCheck.svelte';
-    import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
-    import IoIosTrash from 'svelte-icons/io/IoIosTrash.svelte';
+    import { IoIosClose, IoIosTrash } from 'svelte-icons/io';
 
     export let item, updateItem, deleteItem;
 </script>

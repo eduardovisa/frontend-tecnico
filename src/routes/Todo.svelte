@@ -15,7 +15,7 @@
 
     const getAllItems = async() => {
         try {
-            let { data, error } = await supabase.from('todos').select('*').order('id', { ascending: false });
+            let { data, error } = await supabase.from('todos').select('*').order('id', { ascending: true });
             itemList = data;
             itemListCompleted = itemList.filter(item => item.status == true).length;
             // console.log(data);
@@ -62,7 +62,7 @@
 </script>
 
 <div class="box-container">
-    <h2>TaskMaster</h2>
+    <h2>Todo-List</h2>
 
     <Input postNewItem={postNewItem} />
 
