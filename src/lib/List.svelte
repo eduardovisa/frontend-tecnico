@@ -19,7 +19,7 @@
                 </button>
             {:else}
                 <button on:click={() => updateItem(item.id, false)}>
-                    <div class="delete-task-icon">
+                    <div class="cancel-task-icon">
                         <IoIosClose />
                     </div>
                 </button>
@@ -71,7 +71,16 @@
         color: #28c55b;
     }
     .delete-task-icon {
+        width: 20px;
+        color: #ef4347;
+    }
+    .cancel-task-icon {
         width: 30px;
         color: #ef4347;
+    }
+    @media only screen and (max-width: 768px) {
+        .grid-container {
+            width: 100%;
+        }
     }
 </style>

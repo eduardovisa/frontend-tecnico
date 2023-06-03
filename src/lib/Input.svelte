@@ -52,7 +52,6 @@
         color: white;
     }
     @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
         .box-container {
             display: flex;
             flex-direction: column;
