@@ -5,7 +5,7 @@
 </script>
 
 <div class="box-container">
-    <input placeholder="Add new todo" bind:value={titlem} />
+    <input placeholder="Add new todo..." bind:value={titlem} />
     <button disabled={titlem.length==0} on:click={
         () => {
             postNewItem(titlem);
@@ -28,6 +28,9 @@
         font-size: large;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
+    }
+    input::placeholder {
+        color: #a0a5a7;
     }
     .box-container button {
         border-radius: 0;
