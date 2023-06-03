@@ -1,23 +1,40 @@
 <script>
+    import FaCheck from 'svelte-icons/fa/FaCheck.svelte';
+    import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
+
     export let item;
 </script>
 
-<div class="main-box">
+<div class="box-container">
     <div class="grid-container">
-        <div style="justify-content: left;" class="grid-item">
+        <div style="justify-content: left;" class="grid-item" class:text-disabled={item.status}>
             <h4>{item.titlem}</h4>
         </div>
         <div class="grid-item">
-            <input type="checkbox" checked={item.status} />
+            <button>
+                {#if !item.status}
+                    <div class="complete-task-icon">
+                        <FaCheck />
+                    </div>
+                <!-- {:else}
+                    <div class="complete-task-icon">
+                        <FaCheck />
+                    </div> -->
+                {/if}
+            </button>
         </div>
         <div class="grid-item">
-            <button>Eliminar</button>
+            <button>
+                <div class="delete-task-icon">
+                    <IoIosClose />
+                </div>
+            </button>
         </div>
     </div>
 </div>
 
 <style>
-    .main-box {
+    .box-container {
         width: 100%;
         display: flex;
         justify-content: end;
@@ -25,15 +42,33 @@
     .grid-container {
         width: 80%;
         display: grid;
-        grid-template-columns: 70% auto auto;
+        grid-template-columns: 80% 10% 10%;
         background-color: #374151;
-        border-radius: 10px;
         margin-top: 10px;
+        border-radius: 10px;
     }
     .grid-item {
         display: flex;
-        text-align: center;
         justify-content: end;
         margin-left: 10px;
+        text-align: center;
+    }
+    .text-disabled {
+        color: #6b7280;
+        text-decoration: line-through;
+    }
+    button {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        cursor: pointer;
+    }
+    .complete-task-icon {
+        width: 20px;
+        color: #28c55b;
+    }
+    .delete-task-icon {
+        width: 40px;
+        color: #ef4347;
     }
 </style>

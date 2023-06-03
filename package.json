@@ -14,8 +14,7 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "@emotion/style": "^0.8.0",
-    "@mui/icons-material": "^5.11.16",
-    "@supabase/supabase-js": "^2.24.0"
+    "@supabase/supabase-js": "^2.24.0",
+    "svelte-icons": "^2.1.0"
   }
 }
