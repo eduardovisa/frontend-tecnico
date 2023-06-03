@@ -13,19 +13,40 @@
     });
 
     const getAllItems = async() => {
-        let { data, error } = await supabase.from('todos').select('*');
-        itemList = data;
-        console.log(data);
+        try {
+            let { data, error } = await supabase.from('todos').select('*');
+            itemList = data;
+            // console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     async function postNewItem (titlem) {
-        const { data, error } = await supabase.from('todos').insert([
-            { 
-                titlem: titlem, 
-                status: false 
-            },
-        ]);
-        await getAllItems();
+        try {
+            const { data, error } = await supabase.from('todos').insert([
+                { 
+                    titlem: titlem, 
+                    status: false 
+                },
+            ]);
+            await getAllItems();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    async function updateItem (id) {
+        try {
+            const { data, error } = await supabase.from('todos').update(
+                { 
+                    status: true 
+                }
+            ).eq('id', id);
+            await getAllItems();
+        } catch (error) {
+            console.log(error);
+        };
     };
 </script>
 
@@ -36,7 +57,7 @@
 
     <div>
         {#each itemList as item }
-            <List item={item} />
+            <List item={item} updateItem={updateItem} />
         {:else}
             <h1>Vacío</h1>
         {/each }

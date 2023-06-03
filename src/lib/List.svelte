@@ -2,7 +2,7 @@
     import FaCheck from 'svelte-icons/fa/FaCheck.svelte';
     import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
 
-    export let item;
+    export let item, updateItem;
 </script>
 
 <div class="box-container">
@@ -11,17 +11,13 @@
             <h4>{item.titlem}</h4>
         </div>
         <div class="grid-item">
-            <button>
-                {#if !item.status}
+            {#if !item.status}
+                <button on:click={() => updateItem(item.id)}>
                     <div class="complete-task-icon">
                         <FaCheck />
                     </div>
-                <!-- {:else}
-                    <div class="complete-task-icon">
-                        <FaCheck />
-                    </div> -->
-                {/if}
-            </button>
+                </button>
+            {/if}
         </div>
         <div class="grid-item">
             <button>
