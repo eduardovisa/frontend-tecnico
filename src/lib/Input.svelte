@@ -20,7 +20,7 @@
         flex-direction: row;
     }
     .box-container input {
-        width: 500px;
+        width: 100%;
         border: 2px solid #9ca3af;
         box-sizing: border-box;
         padding-left: 10px;
@@ -40,7 +40,7 @@
         border: 1px solid transparent;
         padding: 0.6em 1.2em;
         font-size: 1em;
-        font-weight: 500;
+        font-weight: 400;
         font-family: inherit;
         cursor: pointer;
         transition: border-color 0.25s;
@@ -50,5 +50,38 @@
     }
     button:disabled {
         color: white;
+    }
+    @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+        .box-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .box-container input {
+            width: 100%;
+            border: 2px solid #9ca3af;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: large;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0px;
+        }
+        .box-container button {
+            border-radius: 0;
+            background-color: #3b82f6;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border: 1px solid transparent;
+            padding: 0.6em 1.2em;
+            font-size: 1em;
+            font-weight: 400;
+            font-family: inherit;
+            cursor: pointer;
+            transition: border-color 0.25s;
+        }
     }
 </style>
