@@ -48,6 +48,15 @@
             console.log(error);
         };
     };
+
+    async function deleteItem (id) {
+        try {   
+            const { data, error } = await supabase.from('todos').delete().eq('id', id);
+            await getAllItems();
+        } catch (error) {
+            console.log(error);
+        };
+    };
 </script>
 
 <div class="box-container">
@@ -56,7 +65,7 @@
     <Input postNewItem={postNewItem} />
 
     {#each itemList as item }
-        <List item={item} updateItem={updateItem} />
+        <List item={item} updateItem={updateItem} deleteItem={deleteItem} />
     {:else}
         <h1>Empty</h1>
     {/each }

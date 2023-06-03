@@ -1,8 +1,9 @@
 <script>
     import FaCheck from 'svelte-icons/fa/FaCheck.svelte';
     import IoIosClose from 'svelte-icons/io/IoIosClose.svelte';
+    import IoIosTrash from 'svelte-icons/io/IoIosTrash.svelte';
 
-    export let item, updateItem;
+    export let item, updateItem, deleteItem;
 </script>
 
 <div class="box-container">
@@ -26,9 +27,9 @@
             {/if}
         </div>
         <div class="grid-item">
-            <button>
+            <button on:click={() => deleteItem(item.id)}>
                 <div class="delete-task-icon">
-                    <IoIosClose />
+                    <IoIosTrash />
                 </div>
             </button>
         </div>
