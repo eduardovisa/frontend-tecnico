@@ -12,9 +12,15 @@
         </div>
         <div class="grid-item">
             {#if !item.status}
-                <button on:click={() => updateItem(item.id)}>
+                <button on:click={() => updateItem(item.id, true)}>
                     <div class="complete-task-icon">
                         <FaCheck />
+                    </div>
+                </button>
+            {:else}
+                <button on:click={() => updateItem(item.id, false)}>
+                    <div class="delete-task-icon">
+                        <IoIosClose />
                     </div>
                 </button>
             {/if}
@@ -36,7 +42,7 @@
         justify-content: end;
     }
     .grid-container {
-        width: 80%;
+        width: 90%;
         display: grid;
         grid-template-columns: 80% 10% 10%;
         background-color: #374151;
@@ -48,6 +54,7 @@
         justify-content: end;
         margin-left: 10px;
         text-align: center;
+        box-sizing: border-box;
     }
     .text-disabled {
         color: #6b7280;
@@ -60,11 +67,11 @@
         cursor: pointer;
     }
     .complete-task-icon {
-        width: 20px;
+        width: 15px;
         color: #28c55b;
     }
     .delete-task-icon {
-        width: 40px;
+        width: 30px;
         color: #ef4347;
     }
 </style>

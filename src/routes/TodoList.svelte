@@ -14,12 +14,12 @@
 
     const getAllItems = async() => {
         try {
-            let { data, error } = await supabase.from('todos').select('*');
+            let { data, error } = await supabase.from('todos').select('*').order('id', { ascending: false });
             itemList = data;
             // console.log(data);
         } catch (error) {
             console.log(error);
-        }
+        };
     };
 
     async function postNewItem (titlem) {
@@ -33,14 +33,14 @@
             await getAllItems();
         } catch (error) {
             console.log(error);
-        }
+        };
     };
 
-    async function updateItem (id) {
+    async function updateItem (id, status) {
         try {
             const { data, error } = await supabase.from('todos').update(
                 { 
-                    status: true 
+                    status: status
                 }
             ).eq('id', id);
             await getAllItems();
@@ -50,29 +50,27 @@
     };
 </script>
 
-<div class="mainBox">
+<div class="box-container">
     <h2>TaskMaster</h2>
 
     <Input postNewItem={postNewItem} />
 
-    <div>
-        {#each itemList as item }
-            <List item={item} updateItem={updateItem} />
-        {:else}
-            <h1>Vacío</h1>
-        {/each }
-    </div>
+    {#each itemList as item }
+        <List item={item} updateItem={updateItem} />
+    {:else}
+        <h1>Empty</h1>
+    {/each }
 </div>
 
 <style>
-    .mainBox {
+    .box-container {
         display: flex;
         flex-direction: column;
         background-color: #1f2937;
         padding: 2rem;
         border-radius: 10px;
     }
-    .mainBox h2 {
+    .box-container h2 {
         text-align: left;
     }
 </style>
