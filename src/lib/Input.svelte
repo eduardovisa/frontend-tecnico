@@ -1,10 +1,12 @@
 <script>
-    export let postNewItem, titlem; 
+    export let postNewItem; 
+
+    let titlem = '';
 </script>
 
 <div class="box">
     <input placeholder="Add new todo" bind:value={titlem} />
-    <button on:click={postNewItem}>Add</button>
+    <button on:click={() => postNewItem(titlem)}>Add</button>
 </div>
 
 <style>
@@ -14,7 +16,7 @@
     }
     .box input {
         width: 500px;
-        border: 2px solid rgb(238, 238, 238);
+        border: 2px solid #9ca3af;
         box-sizing: border-box;
         padding-left: 10px;
         font-size: large;

@@ -2,18 +2,38 @@
     export let item;
 </script>
 
-<div class="box">
-    <h2>{item.titlem}</h2>
-    <input type="checkbox" />
-    <button>Eliminar</button>
+<div class="main-box">
+    <div class="grid-container">
+        <div style="justify-content: left;" class="grid-item">
+            <h4>{item.titlem}</h4>
+        </div>
+        <div class="grid-item">
+            <input type="checkbox" checked={item.status} />
+        </div>
+        <div class="grid-item">
+            <button>Eliminar</button>
+        </div>
+    </div>
 </div>
 
 <style>
-    .box {
+    .main-box {
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        align-items: center;
         justify-content: end;
-        gap: 10px;
+    }
+    .grid-container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 70% auto auto;
+        background-color: #374151;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    .grid-item {
+        display: flex;
+        text-align: center;
+        justify-content: end;
+        margin-left: 10px;
     }
 </style>

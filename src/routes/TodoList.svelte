@@ -6,7 +6,6 @@
     import List from "../lib/List.svelte";
     import Input from "../lib/Input.svelte";
 
-    let titlem = '';
     let itemList = [];
 
     onMount(async () => {
@@ -16,9 +15,10 @@
     const getAllItems = async() => {
         let { data, error } = await supabase.from('todos').select('*');
         itemList = data;
+        console.log(data);
     };
 
-    async function postNewItem () {
+    async function postNewItem (titlem) {
         const { data, error } = await supabase.from('todos').insert([
             { 
                 titlem: titlem, 
@@ -32,13 +32,15 @@
 <div class="mainBox">
     <h2>TaskMaster</h2>
 
-    <Input postNewItem={postNewItem} titlem={titlem} />
+    <Input postNewItem={postNewItem} />
 
-    {#each itemList as item }
-        <List item={item} />
-    {:else}
-        <h1>Vacío</h1>
-    {/each }
+    <div>
+        {#each itemList as item }
+            <List item={item} />
+        {:else}
+            <h1>Vacío</h1>
+        {/each }
+    </div>
 </div>
 
 <style>
