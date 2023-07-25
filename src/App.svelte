@@ -1,5 +1,5 @@
 <script>
-  import Todo from "./routes/Todo.svelte";
+  import Todo from "./routes/TodoSupabase.svelte";
 </script>
 
 <main class="body">
