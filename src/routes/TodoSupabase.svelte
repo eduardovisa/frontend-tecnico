@@ -1,10 +1,10 @@
 <script>
     import { onMount } from "svelte";
     
-    import supabase from "../lib/client";
+    import supabase from "../component/client";
 
-    import List from "../lib/List.svelte";
-    import Input from "../lib/Input.svelte";
+    import List from "../component/List.svelte";
+    import Input from "../component/Input.svelte";
 
     let itemList = [];
     let itemListCompleted = 0;
